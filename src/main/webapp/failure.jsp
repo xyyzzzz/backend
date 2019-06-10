@@ -1,5 +1,6 @@
-<%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8"%>
-
+<%@ page language="java" contentType="text/html; charset=utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.wenr.model.User" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>

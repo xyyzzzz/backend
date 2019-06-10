@@ -1,10 +1,6 @@
-<%@ page language="java" import="com.wenr.model.User"
-contentType="text/html; charset=utf-8" %>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-%>
-
+<%@ page language="java" contentType="text/html; charset=utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.wenr.model.User" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -31,66 +27,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
 <body>
 	<!--/banner-->
-	<header>
-		<div class="top-bar_sub container-fluid">
-			<div class="row">
-				<div class="col-md-4 top-forms text-left mt-4"  data-aos="fade-up">
-					<span>欢迎来到美食网站!</span>
-					<c:choose>
-						<c:when test="${! empty sessionScope.user}">
-						<span class="mx-lg-4 mx-md-2  mx-1">
-							<a href="#"><i class="fas fa-lock"></i> <%=((User)session.getAttribute("user")).getName()%></a>
-						</span>
-							<span>
-							<a href="servlet/LoginServlet?action=logout"><i class="far fa-user"></i> 退出登录</a>
-						</span>
-						</c:when>
-						<c:otherwise>
-						<span class="mx-lg-4 mx-md-2  mx-1">
-							<a href="login.jsp"><i class="fas fa-lock"></i> 登录</a>
-						</span>
-							<span>
-							<a href="register.jsp"><i class="far fa-user"></i> 注册</a>
-						</span>
-						</c:otherwise>
-					</c:choose>
-				</div>
-				<div class="col-md-4 logo text-center" data-aos="fade-up">
-					<a class="navbar-brand" href="index.html">
-						<i class="fab fa-gitkraken"></i> MAYDAY</a>
-				</div>
-
-				<div class="col-md-4 log-icons text-right"  data-aos="fade-up">
-
-					<ul class="social_list1 mt-4">
-
-						<li>
-							<a href="#" class="facebook1 mx-2">
-								<i class="fab fa-facebook-f"></i>
-
-							</a>
-						</li>
-						<li>
-							<a href="#" class="twitter2">
-								<i class="fab fa-twitter"></i>
-
-							</a>
-						</li>
-						<li>
-							<a href="#" class="dribble3 mx-2">
-								<i class="fab fa-dribbble"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#" class="pin">
-								<i class="fab fa-pinterest-p"></i>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</header>
+	<%@include file="header.jsp"%>
 
 	<!--/banner-->
 	<div class="banner-inner">
@@ -106,7 +43,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mx-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="index.html">主页
+						<a class="nav-link" href="index.jsp">主页
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
@@ -114,7 +51,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 						<a class="nav-link" href="about.jsp">关于我们</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="index.html">早餐推荐</a>
+						<a class="nav-link" href="index.jsp">早餐推荐</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="contact.jsp">联系</a>
@@ -142,7 +79,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 	<!--//nav-->
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item">
-			<a href="index.html">主页</a>
+			<a href="index.jsp">主页</a>
 		</li>
 		<li class="breadcrumb-item active">注册</li>
 	</ol>
@@ -155,9 +92,9 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 					<form action="servlet/RegisterServlet" method="post">
 						<div class="form-row">
 							<div class="col-md-6 mb-3">
-								<label for="validationCustom01">用户名</label>
+								<label for="validationCustom01">邮箱</label>
 
-								<input type="text" class="form-control" id="validationDefault01"
+								<input type="email"  class="form-control" id="validationDefault01"
 									   placeholder="" required="" name="username">
 							</div>
 							<div class="col-md-6 mb-3">
@@ -178,10 +115,10 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 									   placeholder="" required="" name="confirmPassword">
 							</div>
 							<div class="col-md-6 mb-3">
-								<label for="validationCustom01">验证码</label>
+								<label for="validationCustom03">验证码</label>
 								<img src="/ZXTM/yzmServlet" onclick="" /><!-- 验证码图片 -->
 
-								<input type="text" class="form-control" id="validationDefault01" placeholder="" required="">
+								<input type="text" class="form-control" id="validationDefault03" placeholder="" required="">
 							</div>
 
 						</div>

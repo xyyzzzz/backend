@@ -1,16 +1,12 @@
 package com.wenr.controller;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import com.wenr.dao.UserDao;
 import com.wenr.model.User;
 import com.wenr.util.MD5Util;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+import java.io.IOException;
 
 public class LoginServlet extends HttpServlet {
 
@@ -75,7 +71,7 @@ public class LoginServlet extends HttpServlet {
                 } else {
                     notSaveCookie(username, password, request, response);
                 }
-                response.sendRedirect(path + "/studentMain.jsp");
+                response.sendRedirect(path + "/index.jsp");
             } else {
                 response.sendRedirect(path + "/failure.jsp");
             }
